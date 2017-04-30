@@ -1,0 +1,24 @@
+<div class="form-group">
+	<div class="input-group">
+		<div class="input-group-addon" ng-if="::options.showTitle">
+			<label for="{{::uniqId}}">{{::options.name}}</label>
+		</div>
+
+		<input id="{{::uniqId}}"
+		       type="text"
+		       class="form-control {{::options.class}}"
+		       bs-datepicker
+		       data-date-format="MM/dd/yyyy"
+		       data-model-date-format="MM/dd/yyyy"
+		       data-date-type="string"
+		       data-autoclose="1"
+		       ng-model="value"
+		       placeholder="{{::options.name}}"
+		       ng-style="::{'min-width': options.width}"/>
+
+		<div class="input-group-addon">
+			<label for="{{::uniqId}}" class="glyphicon glyphicon-calendar" style="cursor: pointer;"></label>
+			<ng-transclude/>
+		</div>
+	</div>
+</div>

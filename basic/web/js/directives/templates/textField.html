@@ -1,0 +1,19 @@
+<div class="form-group">
+	<div class="input-group">
+		<div class="input-group-addon" ng-if="::showTitle">
+			<label for="{{::uniqId}}">{{::name}}</label>
+		</div>
+
+		<input id="{{::uniqId}}"
+		       skip-disable="{{::disabled}}"
+		       ng-disabled="::disabled"
+		       type="text"
+		       class="form-control {{::class}}"
+		       placeholder="{{::name}}"
+		       ng-model="value"
+		       ng-style="::{'min-width': width}"
+		       ng-required="::required">
+
+		<div class="input-group-addon" ng-show="addon" ng-transclude></div>
+	</div>
+</div>

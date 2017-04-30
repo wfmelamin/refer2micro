@@ -1,0 +1,18 @@
+<div class="form-group">
+	<div class="input-group">
+		<div class="input-group-addon" ng-if="::showTitle">
+			<label for="{{::uniqId}}">{{::name}}</label>
+		</div>
+
+		<textarea id="{{::uniqId}}"
+		          class="form-control {{::class}}"
+		          rows="5"
+		          placeholder="{{::name}}"
+		          style="resize: none;"
+		          ng-model="value"
+		          ng-style="::{'min-width': width}"
+		          ng-required="::required"></textarea>
+
+		<div class="input-group-addon" ng-if="::addon" ng-transclude></div>
+	</div>
+</div>

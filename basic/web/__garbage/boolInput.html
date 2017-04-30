@@ -1,0 +1,24 @@
+<div class="btn-group" role="group">
+	<div ng-class="::{'input-group': fieldValue === '0'}">
+		<input type="text" class="form-control" ng-model="fieldValue" placeholder="{{::fieldOptions.name}}" ng-style="::{'min-width': fieldOptions.width}"/>
+		<div class="input-group-addon" ng-bind-html="::addon" ng-if="::fieldValue === '0'"></div>
+	</div>
+</div>
+
+<div class="form-group">
+	<div ng-class="::{'input-group': (options.showTitle || options.addon)}">
+		<div class="btn-group-heading input-group-addon" ng-if="::options.showTitle">
+			<label for="{{::uniqId}}">{{::options.name}}</label>
+		</div>
+
+		<select id="{{::uniqId}}"
+		        class="form-control"
+		        ng-model="value">
+			<option value="">-- Select --</option>
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</select>
+
+		<div class="input-group-addon" ng-if="::options.addon" ng-transclude></div>
+	</div>
+</div>

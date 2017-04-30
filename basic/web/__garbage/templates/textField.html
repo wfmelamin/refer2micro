@@ -1,0 +1,16 @@
+<div class="form-group">
+	<div ng-class="::{'input-group': (localOptions.showTitle || localOptions.addon)}">
+		<div class="input-group-addon" ng-if="::localOptions.showTitle">
+			<label for="{{::uniqId}}">{{::localOptions.name}}</label>
+		</div>
+
+		<input id="{{::uniqId}}"
+		       type="text"
+		       class="form-control {{::localOptions.class}}"
+		       placeholder="{{::localOptions.name}}"
+		       ng-model="value"
+		       ng-style="::{'min-width': localOptions.width}">
+
+		<div class="input-group-addon" ng-if="::localOptions.addon" ng-transclude></div>
+	</div>
+</div>

@@ -1,0 +1,78 @@
+<div class="page_notifications" ng-controller="NotificationController" ng-cloak>
+
+	<!--<debugger data="_debug"></debugger>-->
+
+	<div class="main row">
+		<div class="left col-md-4">
+			<div class="contacts panel panel-regular">
+				<div class="panel-heading">
+					<h4>Contact list</h4>
+				</div>
+				<div class="contacts-list-wrap panel-body">
+					<div class="search-doctor-wrap">
+						<input type="text" class="search-doctor form-control" placeholder="Type doctor Firstname / Lastname for search" ng-model="searchDoctorName"/>
+					</div>
+					<div class="contacts-list list-group">
+
+						<!-- filter:{self: false} - mean show all users except myself -->
+						<a class="contact list-group-item"
+						   ng-repeat="(key, doctor) in doctorData.doctors | filter:{name:searchDoctorName} | filter:{self: false}"
+						   ng-class="{'active': doctor.id == doctorData.selectedDoctor.id}"
+						   ng-click="selectDoctor(doctor.id)">{{doctor.name}}
+
+							<span class="label label-success pull-right"
+							      ng-show="doctor.new_messages_count > 0">{{doctor.new_messages_count}} new!</span>
+							<span class="label label-default pull-right"
+							      ng-show="doctor.new_messages_count == 0">{{doctor.messages_count}}</span>
+						</a>
+
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<div class="right col-md-8">
+			<div class="messages panel panel-regular">
+				<div class="panel-heading">
+					<h4>Messages</h4>
+				</div>
+				<div class="panel-body">
+					<ul class="messages-box">
+
+						<li class="text-info" ng-if="!doctorData.selectedDoctor.hasOwnProperty('id')">Please, chose contact from left box.</li>
+						<li class="text-info" ng-if="doctorData.selectedDoctor.messages_count == 0">No messages yet.</li>
+
+						<li class="message" ng-repeat="(key, message) in messageData.messages" >
+							<div class="message-body">
+								<div class="message-body-head clearfix">
+									<small class="date-created">
+										<span class="glyphicon glyphicon-time"></span>&nbsp;&nbsp;{{message.date_created}}
+									</small>
+									<strong class="doctor-name">{{message.from_name}}</strong>
+								</div>
+								<p class="message-body-text" ng-class="{'message-read': message.is_read == 1}" ng-bind-html="message.content"></p>
+								<div class="additional-actions" ng-if="accessData.data.approveDoctors">
+									<button class="btn btn-danger btn-xs" ng-if="message.type == 2" ng-click="disapproveDoctor(message.user_from_id)">Disapprove</button>
+									<button class="btn btn-success btn-xs" ng-if="message.type == 2" ng-click="approveDoctor(message.user_from_id)">Approve</button>
+
+									<button class="btn btn-xs" ng-if="message.type == 3" disabled>Approved</button>
+									<button class="btn btn-xs" ng-if="message.type == 4" disabled>Disapproved</button>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="panel-footer">
+					<div class="clearfix">
+						<textarea class="message-field" name="" ng-model="messageData.message.content"></textarea>
+						<button class="message-send-button btn btn-success pull-right" ng-click="sendMessage()" ng-if="doctorData.selectedDoctor.hasOwnProperty('id')">Send</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--<debugger data="_debug" />-->
+
+</div>
+

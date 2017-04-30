@@ -1,0 +1,55 @@
+<div class="modal fade" id="{{::modalId}}" tabindex="-1" role="dialog">
+	<div class="modal-dialog modal-lg" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel">{{::title}}</h4>
+			</div>
+			<div class="modal-body">
+				<table class="table table-no-borders">
+					<thead>
+					<tr>
+						<th>ID</th>
+						<th>{{::title}}</th>
+						<th></th>
+					</tr>
+					</thead>
+					<tbody>
+					<!-- Это для добавления -->
+						<tr ng-form name="dialogForm">
+							<td>
+								<input ng-model="newItem.id" type="text" class="form-control" placeholder="ID" readonly/>
+								<hr/>
+							</td>
+							<td>
+								<input ng-model="newItem.name" type="text" class="form-control" placeholder="{{::title}}" required />
+								<hr/>
+							</td>
+							<td>
+								<div class="form-group">
+									<!--TODO:: everywhere this validation + errros-->
+									<button class="btn btn-success btn-sm" ng-click="(dialogForm.$valid)?addItem():''" type="submit"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+								</div>
+							</td>
+						</tr>
+						<!-- Это для вывода -->
+						<tr ng-repeat="item in items">
+							<td>
+								<input ng-model="item.id" type="text" class="form-control" placeholder="ID" readonly/>
+							</td>
+							<td>
+								<input ng-model="item.name" type="text" class="form-control" placeholder="{{::title}}"/>
+							</td>
+							<td width="3%">
+								<div class="form-group">
+									<button class="btn btn-danger btn-sm"
+											ng-click="removeItem(item)"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

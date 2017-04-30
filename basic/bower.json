@@ -1,0 +1,23 @@
+{
+  "name": "basic",
+  "authors": [
+    "Ruslan I <codref.id@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/bower",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-ui-date": "~1.0.1",
+    "angular-disable-all": "~0.0.2"
+  }
+}

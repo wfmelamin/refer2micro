@@ -1,0 +1,25 @@
+<div class="modal fade" id="{{::modalId}}" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">Search</h4>
+			</div>
+			<div class="modal-body">
+				<angucomplete-alt id="autocomplete_{{::modalId}}"
+			                  placeholder="Search by {{title}}"
+			                  pause="300"
+				              selected-object="searchValue"
+				              local-data="tableData"
+				              search-fields="{{searchKey}}"
+				              title-field="{{searchResultKeys}}"
+				              minlength="1"
+				              input-class="form-control form-control-small"  />
+			</div>
+			<div class="modal-footer clearfix">
+				<button class="btn btn-default pull-left" data-dismiss="modal">Cancel</button>
+				<button class="btn btn-default pull-right" ng-click="goToItem()" ng-show="searchDone">Go to patient</button>
+			</div>
+		</div>
+	</div>
+</div>

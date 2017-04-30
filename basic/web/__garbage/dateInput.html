@@ -1,0 +1,22 @@
+<div class="form-group" ng-style="::{'min-width': fieldOptions.width}">
+	<div class="input-group">
+		<div class="input-group-addon" ng-if="::addon">{{::addon}}</div>
+
+		<input id="{{::uniqId}}"
+		       type="text"
+		       class="form-control"
+		       bs-datepicker
+		       data-date-format="MM/dd/yyyy"
+		       data-model-date-format="MM/dd/yyyy"
+		       data-date-type="string"
+		       data-autoclose="1"
+		       data-container="{{::fieldOptions.container !== undefined ? fieldOptions.container  : 'body'}}"
+		       value=""
+		       ng-model="fieldValue"
+		       placeholder="{{::fieldOptions.name}}"/>
+
+		<div class="input-group-addon">
+			<label for="{{::uniqId}}" class="glyphicon glyphicon-calendar" style="cursor: pointer;"></label>
+		</div>
+	</div>
+</div>

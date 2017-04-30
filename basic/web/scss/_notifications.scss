@@ -1,0 +1,128 @@
+.page_notifications {
+
+
+	.main {
+		padding-top: 20px;
+	}
+
+	.panel-regular {
+		border-color: #5958a2;
+
+		-webkit-border-radius: 0;
+		-moz-border-radius: 0;
+		border-radius: 0;
+
+		.panel-heading {
+			background-color: #5958a2;
+			color: #fff;
+
+			-webkit-border-radius: 0;
+			-moz-border-radius: 0;
+			border-radius: 0;
+		}
+	}
+	
+	.contacts {
+
+		.contacts-list-wrap {
+			padding: 0;
+
+			.search-doctor-wrap {
+				position: relative;
+
+				&:after {
+					content: "\e003";
+					font-family: 'Glyphicons Halflings';
+					position: absolute;
+					right: 8px;
+					top: 10px;
+					color: #A9A9A9;
+					font-size: 18px;
+				}
+
+				.search-doctor {
+					padding-right: 30px;
+
+					-webkit-border-radius: 0;
+					-moz-border-radius: 0;
+					border-radius: 0;
+
+					-webkit-box-shadow: unset;
+					-moz-box-shadow: unset;
+					box-shadow: unset;
+
+					border-width: 0 0 1px 0;
+					height: 44px;
+				}
+
+			}
+
+			.contacts-list {
+				margin-bottom: 0;
+
+				.contact {
+					-webkit-border-radius: 0;
+					-moz-border-radius: 0;
+					border-radius: 0;
+					cursor: pointer;
+					border-width: 1px 0 1px 0;
+
+					&:first-child {
+						border-top: 0;
+					}
+					&:last-child {
+						border-bottom: 0;
+					}
+				}
+			}
+		}
+
+	}
+	.messages {
+		.messages-box {
+			padding: 0 30px;
+			max-height: 400px;
+			overflow-y: scroll;
+			min-height: 100px;
+
+			.message {
+				list-style-type: none;
+				border-bottom: 1px dotted #dddddd;
+				margin-bottom: 20px;
+				padding-bottom: 10px;
+
+				.message-body{
+					.message-body-head {
+						padding-bottom: 10px;
+
+						.date-created {
+							color: #888888;
+						}
+						.doctor-name {
+							margin-left: 20px;
+						}
+
+					}
+					.message-body-text {
+						background-color: #f5f5f5;
+						
+						&.message-read {
+							background-color: transparent;
+						}
+					}
+				}
+				.additional-actions {
+
+				}
+			}
+		}
+		.message-field {
+			width: 90%;
+			width: calc(100% - 70px);
+
+		}
+		.message-send-button {
+			margin-left: 10px;
+		}
+	}
+}

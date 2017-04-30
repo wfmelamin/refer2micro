@@ -1,0 +1,61 @@
+.page_micro-referral {
+
+	.input-group {
+		width: 100%;
+
+		.input-group-addon:first-child {
+			&:not(.auto-width) {
+				width: 120px;
+			}
+		}
+	}
+
+	.table {
+		> th {
+			border: 0;
+		}
+		> td {
+			padding: 8px 4px 0 4px;
+			border: 0;
+		}
+	}
+
+	.bloods-table {
+		td {
+			width: 15%;
+
+			input {
+				width: 100%;
+			}
+
+			/*&:first-child {
+				input {
+					width: 100px;
+				}
+			}*/
+		}
+	}
+	.reason-box, .details-box, .medical-history-box, .investigations, .plan-box {
+		.form-group {
+			background-color: #e8f3f9;
+			padding: 10px;
+		}
+	}
+	.attachments {
+		.file-input {
+			margin-bottom: 10px;
+		}
+		.progress {
+			.progress-line {
+				background-color: #5958a2;
+
+				-webkit-border-radius: 15px;
+				-moz-border-radius: 15px;
+				border-radius: 15px;
+				text-align: center;
+				color: #c2c0ff;
+			}
+		}
+	}
+
+}

@@ -1,0 +1,10 @@
+.actions-box {
+	margin-top: 10px;
+	.heading-button {
+		@media(max-width: 480px) {
+			.text {
+				display: none;
+			}
+		}
+	}
+}

@@ -1,0 +1,605 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+html,
+body {
+  height: 100%;
+}
+
+.wrap {
+  min-height: 100%;
+  height: auto;
+  margin: 0 auto -60px;
+  padding: 0 0 60px;
+}
+
+.wrap > .container {
+  padding: 50px 15px 20px;
+}
+
+.footer {
+  height: 60px;
+  background-color: #f5f5f5;
+  border-top: 1px solid #ddd;
+  padding-top: 20px;
+}
+
+.btn[disabled] {
+  opacity: 1 !important;
+}
+
+.actions-box .btn[disabled] {
+  opacity: 0.65 !important;
+}
+
+input[disabled], select[disabled], textarea[disabled] {
+  background-color: #fcfcfc !important;
+}
+
+.input-group {
+  width: 100%;
+}
+.input-group .input-group-addon:first-child {
+  text-align: left;
+}
+.input-group .input-group-addon:first-child label {
+  margin: 0;
+  font-weight: normal;
+}
+
+body.modal-open {
+  overflow: inherit;
+  padding-right: 0 !important;
+}
+
+.ui-datepicker {
+  z-index: 1050 !important;
+  color: black;
+}
+
+.datepicker button {
+  border-width: 0;
+}
+
+section {
+  margin-bottom: 20px;
+}
+
+.well {
+  margin-bottom: 5px;
+}
+
+.table.table-no-borders th, .table.table-no-borders td {
+  border: 0;
+}
+
+.btn-group .btn-group-heading {
+  display: inline-block;
+  float: left;
+  padding: 9px 14px;
+}
+
+/* Datepicker fix
+============================*/
+.datepicker.dropdown-menu {
+  width: 287px;
+  height: 267px;
+  padding: 10px;
+}
+.datepicker.dropdown-menu button {
+  outline: none;
+  border: 0;
+}
+.datepicker.dropdown-menu tbody {
+  height: 180px;
+}
+.datepicker.dropdown-menu tbody button {
+  padding: 6px;
+}
+.datepicker.dropdown-menu.datepicker-mode-1 tbody button, .datepicker.dropdown-menu.datepicker-mode-2 tbody button {
+  height: 65px;
+}
+
+.timepicker.dropdown-menu {
+  padding: 0 4px;
+}
+.timepicker.dropdown-menu button {
+  outline: none;
+  border: 0;
+}
+.timepicker.dropdown-menu tbody button {
+  padding: 6px;
+}
+
+/* Theme
+=========================*/
+.page_micro-referral .btn, .page_blood-cultures .btn, .page_opat .btn {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+.page_micro-referral .section-heading, .page_blood-cultures .section-heading, .page_opat .section-heading {
+  min-height: 20px;
+  padding: 9px;
+  background-color: #5958a2;
+  border: 1px solid #8eaaf4;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  color: #fff;
+  margin-bottom: 10px;
+}
+.page_micro-referral .section-heading > label, .page_blood-cultures .section-heading > label, .page_opat .section-heading > label {
+  font-size: 21px;
+  margin-bottom: 0;
+}
+.page_micro-referral .input-group-addon, .page_blood-cultures .input-group-addon, .page_opat .input-group-addon {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  background-color: #fff;
+}
+.page_micro-referral .btn-sm, .page_micro-referral .btn-group-sm > .btn, .page_blood-cultures .btn-sm, .page_blood-cultures .btn-group-sm > .btn, .page_opat .btn-sm, .page_opat .btn-group-sm > .btn {
+  padding: 7px 10px;
+}
+.page_micro-referral .form-group, .page_blood-cultures .form-group, .page_opat .form-group {
+  margin: 3px;
+  margin-top: 0;
+}
+.page_micro-referral .form-control, .page_blood-cultures .form-control, .page_opat .form-control {
+  -webkit-border-radius: 0 !important;
+  -moz-border-radius: 0 !important;
+  border-radius: 0 !important;
+}
+.page_micro-referral .form-control input, .page_micro-referral .form-control select, .page_blood-cultures .form-control input, .page_blood-cultures .form-control select, .page_opat .form-control input, .page_opat .form-control select {
+  border: 1px solid #ddd !important;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+.page_micro-referral .btn.btn-success, .page_blood-cultures .btn.btn-success, .page_opat .btn.btn-success {
+  margin-right: 3px;
+  background-color: #82DE82;
+}
+.page_micro-referral .btn.btn-danger, .page_blood-cultures .btn.btn-danger, .page_opat .btn.btn-danger {
+  margin-right: 3px;
+  background-color: #DC6663;
+}
+.page_micro-referral .table > thead > tr > th, .page_blood-cultures .table > thead > tr > th, .page_opat .table > thead > tr > th {
+  border-bottom: 1px solid #bbbbbb;
+  background-color: rgba(137, 135, 202, 0.91);
+  color: #fff;
+}
+.page_micro-referral .table > tbody, .page_blood-cultures .table > tbody, .page_opat .table > tbody {
+  border-width: 1px;
+  border-color: #bbbbbb;
+}
+.page_micro-referral .table > tbody:nth-child(odd), .page_blood-cultures .table > tbody:nth-child(odd), .page_opat .table > tbody:nth-child(odd) {
+  background-color: #f1ffff;
+}
+.page_micro-referral .table > tbody:nth-child(even), .page_blood-cultures .table > tbody:nth-child(even), .page_opat .table > tbody:nth-child(even) {
+  background-color: #e8f3f9;
+}
+.page_micro-referral .table > tbody:only-child, .page_blood-cultures .table > tbody:only-child, .page_opat .table > tbody:only-child {
+  background-color: #e8f3f9;
+}
+.page_micro-referral .table > tbody + tbody, .page_blood-cultures .table > tbody + tbody, .page_opat .table > tbody + tbody {
+  border-bottom: 1px solid #bbbbbb;
+}
+.page_micro-referral .table > tbody > tr, .page_blood-cultures .table > tbody > tr, .page_opat .table > tbody > tr {
+  border: 0;
+}
+.page_micro-referral .table > tbody > tr > td, .page_blood-cultures .table > tbody > tr > td, .page_opat .table > tbody > tr > td {
+  border: 0;
+  padding: 0;
+}
+.page_micro-referral .table > tbody > tr > td:first-child, .page_blood-cultures .table > tbody > tr > td:first-child, .page_opat .table > tbody > tr > td:first-child {
+  padding-left: 10px !important;
+}
+.page_micro-referral .table > tbody > tr > td:last-child, .page_blood-cultures .table > tbody > tr > td:last-child, .page_opat .table > tbody > tr > td:last-child {
+  padding-right: 10px !important;
+}
+.page_micro-referral .table > tbody > tr:last-child > td, .page_blood-cultures .table > tbody > tr:last-child > td, .page_opat .table > tbody > tr:last-child > td {
+  padding: 0 0 20px 0;
+}
+.page_micro-referral .table > tbody > tr:first-child > td, .page_blood-cultures .table > tbody > tr:first-child > td, .page_opat .table > tbody > tr:first-child > td {
+  padding: 20px 0 0 0;
+}
+.page_micro-referral .table > tbody > tr:only-child > td, .page_blood-cultures .table > tbody > tr:only-child > td, .page_opat .table > tbody > tr:only-child > td {
+  padding: 20px 0;
+}
+
+.box {
+  background-color: #e8f3f9;
+  padding: 10px;
+}
+
+.table.table-patients {
+  text-align: left;
+}
+.table.table-patients > tbody {
+  background-color: #e8f3f9 !important;
+}
+.table.table-patients > tbody > tr {
+  border-top: 1px solid #dddddd;
+  border-bottom: 1px solid #dddddd;
+}
+.table.table-patients > tbody > tr:hover {
+  background-color: #e7f5d3;
+  border-top: 1px solid #5958a2;
+  border-bottom: 1px solid #5958a2;
+}
+.table.table-patients > tbody > tr td {
+  padding: 8px !important;
+  line-height: 1.42857143;
+  vertical-align: top;
+}
+
+.panel-regular {
+  border-color: #5958a2;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+.panel-regular .panel-heading {
+  background-color: #5958a2;
+  color: #fff;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+
+.form-box {
+  max-width: 400px;
+  margin: 0 auto;
+}
+.form-box .submit-button {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+
+/* Structure
+=========================*/
+.header {
+  background-color: #5958a2;
+  border-color: #353460;
+}
+.header a, .header .btn-link {
+  color: #fff !important;
+}
+.header .navbar-nav li.active a {
+  background-color: #474681;
+}
+.header .navbar-nav li.active a:hover, .header .navbar-nav li.active a:focus {
+  background-color: #474681;
+}
+.header .navbar-nav li a {
+  border-left: 1px solid #353460;
+}
+.header .navbar-nav li a:hover {
+  background-color: #474681 !important;
+}
+@media (min-width: 787px) {
+  .header .btn-link {
+    padding: 14px 11px;
+    border-left: 1px solid #353460;
+    border-right: 1px solid #353460;
+  }
+}
+.header .btn-link:hover {
+  background-color: #474681;
+  text-decoration: none;
+}
+
+/** angular validation
+ ======================*/
+input.ng-invalid.ng-dirty.ng-touched {
+  border-color: #dc6663;
+}
+input.ng-invalid.ng-dirty.ng-touched::-webkit-input-placeholder {
+  color: #dc6663;
+}
+input.ng-invalid.ng-dirty.ng-touched:-moz-placeholder {
+  color: #dc6663;
+}
+input.ng-invalid.ng-dirty.ng-touched::-moz-placeholder {
+  color: #dc6663;
+}
+input.ng-invalid.ng-dirty.ng-touched:-ms-input-placeholder {
+  color: #dc6663;
+}
+
+.page_login {
+  margin-top: 5%;
+}
+
+.page_register {
+  margin-top: 5%;
+}
+
+.actions-box {
+  margin-top: 10px;
+}
+@media (max-width: 480px) {
+  .actions-box .heading-button .text {
+    display: none;
+  }
+}
+
+.page_blood-cultures .actions-box {
+  margin-bottom: 20px !important;
+}
+.page_blood-cultures .table.table-blood-culture {
+  		/*> tbody {
+  
+  			border-bottom: 1px solid #bbbbbb;
+  
+  			&:hover {
+  				background-color: #f5f5f5;
+  			}
+  			> th {
+  				padding: 8px;
+  			}
+  			> tr {
+  
+  				> td {
+  					padding: 8px 4px 0 4px;
+  
+  					.form-group {
+  						margin-bottom: 0;
+  					}
+  				}
+  
+  				&:first-child {
+  					td {
+  						padding-top: 20px;
+  					}
+  				}
+  				&:last-child {
+  					td {
+  						padding-bottom: 20px;
+  					}
+  				}
+  			}
+  		}*/
+}
+.page_blood-cultures .table.table-blood-culture > tbody:hover {
+  background-color: #e7f5d3;
+  border-top: 1px solid #8987ca !important;
+  border-bottom: 1px solid #8987ca !important;
+}
+
+.page_micro-referral .input-group {
+  width: 100%;
+}
+.page_micro-referral .input-group .input-group-addon:first-child:not(.auto-width) {
+  width: 120px;
+}
+.page_micro-referral .table > th {
+  border: 0;
+}
+.page_micro-referral .table > td {
+  padding: 8px 4px 0 4px;
+  border: 0;
+}
+.page_micro-referral .bloods-table td {
+  width: 15%;
+  /*&:first-child {
+  	input {
+  		width: 100px;
+  	}
+  }*/
+}
+.page_micro-referral .bloods-table td input {
+  width: 100%;
+}
+.page_micro-referral .reason-box .form-group, .page_micro-referral .details-box .form-group, .page_micro-referral .medical-history-box .form-group, .page_micro-referral .investigations .form-group, .page_micro-referral .plan-box .form-group {
+  background-color: #e8f3f9;
+  padding: 10px;
+}
+.page_micro-referral .attachments .file-input {
+  margin-bottom: 10px;
+}
+.page_micro-referral .attachments .progress .progress-line {
+  background-color: #5958a2;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  text-align: center;
+  color: #c2c0ff;
+}
+
+.page_notifications .main {
+  padding-top: 20px;
+}
+.page_notifications .panel-regular {
+  border-color: #5958a2;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+.page_notifications .panel-regular .panel-heading {
+  background-color: #5958a2;
+  color: #fff;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+.page_notifications .contacts .contacts-list-wrap {
+  padding: 0;
+}
+.page_notifications .contacts .contacts-list-wrap .search-doctor-wrap {
+  position: relative;
+}
+.page_notifications .contacts .contacts-list-wrap .search-doctor-wrap:after {
+  content: "\e003";
+  font-family: 'Glyphicons Halflings';
+  position: absolute;
+  right: 8px;
+  top: 10px;
+  color: #A9A9A9;
+  font-size: 18px;
+}
+.page_notifications .contacts .contacts-list-wrap .search-doctor-wrap .search-doctor {
+  padding-right: 30px;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-box-shadow: unset;
+  -moz-box-shadow: unset;
+  box-shadow: unset;
+  border-width: 0 0 1px 0;
+  height: 44px;
+}
+.page_notifications .contacts .contacts-list-wrap .contacts-list {
+  margin-bottom: 0;
+}
+.page_notifications .contacts .contacts-list-wrap .contacts-list .contact {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  cursor: pointer;
+  border-width: 1px 0 1px 0;
+}
+.page_notifications .contacts .contacts-list-wrap .contacts-list .contact:first-child {
+  border-top: 0;
+}
+.page_notifications .contacts .contacts-list-wrap .contacts-list .contact:last-child {
+  border-bottom: 0;
+}
+.page_notifications .messages .messages-box {
+  padding: 0 30px;
+  max-height: 400px;
+  overflow-y: scroll;
+  min-height: 100px;
+}
+.page_notifications .messages .messages-box .message {
+  list-style-type: none;
+  border-bottom: 1px dotted #dddddd;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+}
+.page_notifications .messages .messages-box .message .message-body .message-body-head {
+  padding-bottom: 10px;
+}
+.page_notifications .messages .messages-box .message .message-body .message-body-head .date-created {
+  color: #888888;
+}
+.page_notifications .messages .messages-box .message .message-body .message-body-head .doctor-name {
+  margin-left: 20px;
+}
+.page_notifications .messages .messages-box .message .message-body .message-body-text {
+  background-color: #f5f5f5;
+}
+.page_notifications .messages .messages-box .message .message-body .message-body-text.message-read {
+  background-color: transparent;
+}
+.page_notifications .messages .message-field {
+  width: 90%;
+  width: calc(100% - 70px);
+}
+.page_notifications .messages .message-send-button {
+  margin-left: 10px;
+}
+
+.page_opat .actions-box {
+  margin-bottom: 20px !important;
+}
+.page_opat section {
+  margin-bottom: 0;
+}
+.page_opat .table > th {
+  border: 0;
+}
+.page_opat .table > td {
+  padding: 8px 4px 0 4px;
+  border: 0;
+}
+.page_opat .row {
+  margin-bottom: 0;
+}
+.page_opat .form-control.input-double {
+  height: 69px;
+}
+.page_opat .opat-selects .input-group-addon label {
+  width: 160px;
+}
+.page_opat .table.table-antibiotics > tbody:hover {
+  background-color: #e7f5d3;
+  border-top: 1px solid #8987ca !important;
+  border-bottom: 1px solid #8987ca !important;
+}
+.page_opat .patient-box, .page_opat .other, .page_opat .primary-infective, .page_opat .bottom {
+  background-color: #e8f3f9;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.angucomplete-holder {
+  position: relative;
+}
+
+.angucomplete-dropdown {
+  border-color: #ececec;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 2px;
+  width: 250px;
+  padding: 6px;
+  cursor: pointer;
+  z-index: 9999;
+  position: absolute;
+  /*top: 32px;
+  left: 0px;
+  */
+  margin-top: -6px;
+  background-color: #ffffff;
+}
+
+.angucomplete-searching {
+  color: #acacac;
+  font-size: 14px;
+}
+
+.angucomplete-description {
+  font-size: 14px;
+}
+
+.angucomplete-row {
+  padding: 5px;
+  color: #000000;
+  margin-bottom: 4px;
+}
+
+.angucomplete-selected-row, .angucomplete-row:hover {
+  background-color: lightblue;
+  color: #ffffff;
+}
+
+.angucomplete-image-holder {
+  padding-top: 2px;
+  float: left;
+  margin-right: 10px;
+  margin-left: 5px;
+}
+
+.angucomplete-image {
+  height: 34px;
+  width: 34px;
+  border-radius: 50%;
+  border-color: #ececec;
+  border-style: solid;
+  border-width: 1px;
+}
+
+.angucomplete-image-default {
+  /* Add your own default image here
+   background-image: url('/assets/default.png');
+  */
+  background-position: center;
+  background-size: contain;
+  height: 34px;
+  width: 34px;
+}

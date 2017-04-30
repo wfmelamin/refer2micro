@@ -1,0 +1,45 @@
+.page_opat {
+	.actions-box {
+		margin-bottom: 20px !important;
+	}
+	section {
+		margin-bottom: 0;
+	}
+	.table {
+		> th {
+			border: 0;
+		}
+		> td {
+			padding: 8px 4px 0 4px;
+			border: 0;
+		}
+	}
+	.row {
+		margin-bottom: 0;
+	}
+	.form-control.input-double {
+		height: 69px;
+	}
+	.opat-selects {
+		.input-group-addon label {
+			width: 160px;
+		}
+	}
+	.table.table-antibiotics {
+		> tbody {
+			&:hover {
+				background-color: #e7f5d3;
+				border-top: 1px solid #8987ca !important;
+				border-bottom: 1px solid #8987ca !important;
+			}
+		}
+	}
+
+
+
+	.patient-box, .other, .primary-infective, .bottom {
+		background-color: #e8f3f9;
+		padding: 10px;
+		margin-bottom: 10px;
+	}
+}

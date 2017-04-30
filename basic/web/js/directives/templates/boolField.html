@@ -1,0 +1,19 @@
+<div class="form-group">
+	<div class="{{::inputGroupClass}}">
+		<div class="input-group-addon" ng-if="::showTitle">
+			<label for="{{::uniqId}}">{{::name}}</label>
+		</div>
+
+		<select id="{{::uniqId}}"
+		        class="form-control {{::class}}"
+		        ng-model="value"
+		        ng-style="::{'min-width': width}"
+		        ng-required="::required">
+			<option value="">-- Select --</option>
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</select>
+
+		<div class="input-group-addon" ng-if="::addon" ng-transclude></div>
+	</div>
+</div>

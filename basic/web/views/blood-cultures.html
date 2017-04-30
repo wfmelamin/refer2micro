@@ -1,0 +1,149 @@
+<div class="page_blood-cultures" ng-controller="BloodCultureMainController" ng-cloak ng-form name="itemForm">
+
+	<!--<debugger data="_debug" />-->
+
+	<div class="heading">
+		<section ng-include="'views/_actions.html'" ng-controller="ActionController"><span ng-init="setForm(itemForm);"></span></section>
+		<div class="section-heading"><label>Patient info</label></div>
+		<section class="patient-box box" disable-all="globalData.readOnly">
+			<div class="row">
+				<div class="col-md-4">
+					<field type="text" value="bloodCultureMainData.data.patient.surname" options="{name: 'Surname', required: true}">
+						<span class="glyphicon glyphicon-search" aria-hidden="true" data-toggle="modal"
+						      data-target="#patientsSearchSurname" style="cursor: pointer;" skip-disable></span>
+					</field>
+				</div>
+				<div class="col-md-4">
+					<field type="text" value="bloodCultureMainData.data.patient.name" options="{name: 'Name', required: true}"></field>
+				</div>
+				<div class="col-md-4">
+					<field type="text" value="bloodCultureMainData.data.hospital_name" options="{name: 'NHS', disabled: true}">
+						<span class="glyphicon glyphicon-search" style="cursor: pointer;" aria-hidden="true"
+						      data-toggle="modal" data-target="#patientsSearchNhsNo" skip-disable></span>
+					</field>
+				</div>
+			</div>
+		</section>
+	</div>
+
+	<div class="main" >
+		<section class="row" ng-controller="BloodCulturesTableController" disable-all="globalData.readOnly">
+			<div class="col-md-12">
+				<div class="section-heading"><label for="">Blood Cultures</label></div>
+
+				<div class="table-responsive">
+					<table class="table-multi-body table-blood-culture table">
+						<thead>
+						<tr>
+							<th>Sample Date</th>
+							<th width="120px">Lab No.
+								<button class="btn btn-default btn-sm" style="vertical-align: bottom;" data-toggle="modal" data-target="#patientsSearchLabNo" skip-disable>
+									<span class="glyphicon glyphicon-search" style="cursor: pointer;" aria-hidden="true" skip-disable></span>
+								</button></th>
+							<th width="160px">Sensivity Complete</th>
+							<th width="30%">Significant Resistance</th>
+							<th width="160px">Active Case</th>
+							<th></th>
+						</tr>
+						</thead>
+
+						<tbody ng-click="setBlodCultureSelected(-1)">
+						<tr>
+							<td>
+								<field type="date" value="fullTableData.bloodCulturesTable.newItem.date_sample" options="{name: 'Sample Date', showTitle: false}"></field>
+							</td>
+							<td>
+								<field type="text" value="fullTableData.bloodCulturesTable.newItem.lab_no" options="{name: 'Lab No.', showTitle: false}"></field>
+
+							</td>
+							<td>
+								<field type="bool" value="fullTableData.bloodCulturesTable.newItem.sensitivity_complete" options="{name: 'Sensitivity Complete', showTitle: false}"></field>
+							</td>
+							<td>
+								<field type="select" value="fullTableData.bloodCulturesTable.newItem.significant_id" options="{name: 'Significant', itemsName: 'significantsList', showTitle: false}">
+									<span class="glyphicon glyphicon-plus-sign text-success" data-target="#significantsList" data-toggle="modal" style="cursor: pointer;"></span>
+								</field>
+							</td>
+							<td>
+								<field type="bool" value="fullTableData.bloodCulturesTable.newItem.active_case" options="{name: 'Active Case', showTitle: false}"></field>
+							</td>
+							<td style="vertical-align: top;" rowspan="2">
+								<button class="btn btn-success" ng-click="addItem()">
+									<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+								</button>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="6">
+								<field type="text" value="fullTableData.bloodCulturesTable.newItem.follow_up_required" options="{name: 'Follow Up Required'}"></field>
+							</td>
+						</tr>
+						</tbody>
+
+
+						<tbody ng-repeat="(key, item) in fullTableData.bloodCulturesTable.data" ng-click="setBlodCultureSelected(key)">
+						<tr>
+							<td>
+								<field type="date" value="item.date_sample" options="{name: 'Sample Date', showTitle: false}"></field>
+							</td>
+							<td>
+								<field type="text" value="item.lab_no" options="{name: 'Lab No.', showTitle: false}"></field>
+
+							</td>
+							<td>
+								<field type="bool" value="item.sensitivity_complete" options="{name: 'Sensitivity Complete', showTitle: false}"></field>
+							</td>
+							<td>
+								<field type="select" value="item.significant_id" options="{name: 'Significant', itemsName: 'significantsList', showTitle: false}"></field>
+							</td>
+							<td>
+								<field type="bool" value="item.active_case" options="{name: 'Active Case', showTitle: false}"></field>
+							</td>
+							<td style="vertical-align: top;" rowspan="2">
+								<button class="btn btn-danger" ng-click="removeItem()">
+									<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+								</button>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="6">
+								<field type="text" value="item.follow_up_required" options="{name: 'Follow Up Required'}"></field>
+							</td>
+						</tr>
+						</tbody>
+
+					</table>
+				</div>
+			</div>
+		</section>
+
+		<section class="other row" disable-all="blood_culture_selected_id === -1 || globalData.readOnly">
+			<div class="col-md-6">
+				<div class="section-heading"><label for="">Gram Stains</label></div>
+				<full-table table="fullTableData.gramStainsTable" thead="false"></full-table>
+			</div>
+			<div class="col-md-6">
+				<div class="section-heading"><label for="">Organisms</label></div>
+				<full-table table="fullTableData.organismsTable" thead="false"></full-table>
+			</div>
+		</section>
+
+
+
+	</div>
+
+
+	<div ng-include="'views/_patients_list.html'" ng-controller="PatientController"></div>
+
+
+	<simple-table title="Significants" modal-id="significantsList" items="simpleTableData.significantsList"></simple-table>
+	<simple-table title="Organisms" modal-id="organismsList" items="simpleTableData.organismsList"></simple-table>
+	<simple-table title="Gram Stains" modal-id="gramStainsList" items="simpleTableData.gramStainsList"></simple-table>
+
+
+	<search-modal table="bloodCultureMainData.laboratoriesData" title="Blood Culture Lab No." modal-id="patientsSearchLabNo" search-key="lab_no" search-result-keys="lab_no,name,surname"></search-modal>
+	<search-modal table="globalData.patientsAll" title="Patients Surname" modal-id="patientsSearchSurname" search-key="surname" search-result-keys="name,surname"></search-modal>
+	<search-modal table="globalData.patientsAll" title="NHS number" modal-id="patientsSearchNhsNo" search-key="hospital_name" search-result-keys="hospital_name,name,surname"></search-modal>
+
+</div>
+

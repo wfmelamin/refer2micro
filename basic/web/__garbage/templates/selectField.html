@@ -1,0 +1,19 @@
+<div class="form-group">
+	<div ng-class="::{'input-group': (options.showTitle || options.addon)}">
+		<div class="input-group-addon" ng-if="::options.showTitle">
+			<label for="{{::uniqId}}">{{::options.name}}</label>
+		</div>
+
+		<select id="{{::uniqId}}"
+				class="form-control {{::options.class}}"
+		        ng-model="value"
+		        to-number
+				ng-style="::{'min-width': options.width}">
+			<option selected value="0">-- Select {{::options.name}} --</option>
+			<option ng-repeat="item in simpleTableData[options.itemsName]"
+			        value="{{ item.id }}">{{ item.name }}</option>
+		</select>
+
+		<div class="input-group-addon" ng-if="::options.addon" ng-transclude></div>
+	</div>
+</div>

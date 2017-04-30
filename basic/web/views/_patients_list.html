@@ -1,0 +1,36 @@
+<div class="modal fade" id="patientsList" tabindex="-1" role="dialog">
+	<div class="modal-dialog modal-lg" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel">Select Patient or create new?</h4>
+			</div>
+			<div class="modal-body">
+				<table class="table table-patients">
+					<thead>
+					<tr>
+						<th>Surname</th>
+						<th>Firstname</th>
+						<th>DOB</th>
+						<th>NHSNo</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr ng-repeat="(key, patient) in globalData.patientsFree" ng-click="selectPatient(key)" style="cursor: pointer;">
+						<td>{{patient.surname}}</td>
+						<td>{{patient.name}}</td>
+						<td>{{patient.date_birth}}</td>
+						<td>{{patient.nhs_no}}</td>
+					</tr>
+					</tbody>
+				</table>
+
+
+			</div>
+			<div class="modal-footer">
+				<button class="btn btn-success" ng-click="selectPatient(-1)">Create New</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal" ng-click="cancelSelectPatient()">Close</button>
+			</div>
+		</div>
+	</div>
+</div>

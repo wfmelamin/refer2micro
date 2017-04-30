@@ -1,0 +1,371 @@
+html,
+body {
+	height: 100%;
+}
+
+.wrap {
+	min-height: 100%;
+	height: auto;
+	margin: 0 auto -60px;
+	padding: 0 0 60px;
+}
+
+.wrap > .container {
+	padding: 50px 15px 20px;
+}
+
+.footer {
+	height: 60px;
+	background-color: #f5f5f5;
+	border-top: 1px solid #ddd;
+	padding-top: 20px;
+}
+
+.btn[disabled] {
+	opacity: 1 !important;
+}
+
+.actions-box {
+	.btn[disabled] {
+		opacity: 0.65 !important;
+	}
+}
+
+input[disabled],select[disabled],textarea[disabled] {
+	background-color: #fcfcfc !important;
+}
+
+.input-group {
+	width: 100%;
+
+	.input-group-addon:first-child {
+
+		text-align: left;
+
+		label {
+			margin: 0;
+			font-weight: normal;
+		}
+	}
+}
+
+
+body.modal-open {
+	overflow: inherit;
+	padding-right: 0 !important;
+}
+
+.ui-datepicker {
+	z-index: 1050 !important;
+	color: black;
+}
+
+.datepicker button {
+	border-width: 0;
+}
+
+section {
+	margin-bottom: 20px;
+}
+
+.well {
+	margin-bottom: 5px;
+}
+.table.table-no-borders {
+	th,td {
+		border: 0;
+	}
+}
+.btn-group {
+	.btn-group-heading {
+		display: inline-block;
+		float: left;
+		padding: 9px 14px;
+	}
+}
+
+
+/* Datepicker fix
+============================*/
+.datepicker.dropdown-menu {
+	width: 287px;
+	height: 267px;
+	padding: 10px;
+
+	button {
+		outline: none;
+		border: 0;
+	}
+	tbody {
+		height: 180px;
+	}
+	tbody button {
+		padding: 6px;
+	}
+	&.datepicker-mode-1, &.datepicker-mode-2 {
+		tbody button {
+			height: 65px;
+		}
+	}
+}
+
+.timepicker.dropdown-menu {
+	padding: 0 4px;
+	button {
+		outline: none;
+		border: 0;
+	}
+	tbody button {
+		padding: 6px;
+	}
+}
+
+
+/* Theme
+=========================*/
+.page_micro-referral, .page_blood-cultures, .page_opat {
+
+//	.patient-box {
+//		.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+//			padding-left: 0 !important;
+//			padding-right: 0 !important;
+//		}
+//	}
+	.btn {
+		-webkit-border-radius: 0;
+		-moz-border-radius: 0;
+		border-radius: 0;
+	}
+
+	.section-heading {
+		min-height: 20px;
+		padding: 9px;
+//		background-color: #292852;
+		background-color: #5958a2;
+		border: 1px solid #8eaaf4;
+//		border: 1px solid #000;
+		-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+		box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+		text-align: center;
+		color: #fff;
+		margin-bottom: 10px;
+
+		& > label {
+			font-size: 21px;
+			margin-bottom: 0;
+		}
+	}
+
+
+	.input-group-addon {
+		-webkit-border-radius: 0;
+		-moz-border-radius: 0;
+		border-radius: 0;
+		background-color: #fff;
+	}
+	.btn-sm, .btn-group-sm > .btn {
+		padding: 7px 10px;
+	}
+	.form-group {
+		margin: 3px;
+		margin-top: 0;
+	}
+	.form-control {
+		-webkit-border-radius: 0 !important;
+		-moz-border-radius: 0 !important;
+		border-radius: 0 !important;
+
+		input, select {
+			border: 1px solid #ddd !important;
+			-webkit-box-shadow: none;
+			-moz-box-shadow: none;
+			box-shadow: none;
+		}
+	}
+
+
+	.btn.btn-success {
+//		margin: 1.5px;
+		margin-right: 3px;
+		background-color: #82DE82;
+	}
+	.btn.btn-danger {
+//		margin: 1.5px;
+		margin-right: 3px;
+		background-color: #DC6663;
+	}
+	.table {
+		> thead {
+			> tr {
+				> th {
+					border-bottom: 1px solid #bbbbbb;
+//					background-color: #8987ca;
+					background-color: rgba(137, 135, 202, 0.91);
+					color: #fff;
+				}
+			}
+		}
+		> tbody {
+			border-width: 1px;
+			border-color: #bbbbbb;
+
+			&:nth-child(odd) {
+				background-color: #f1ffff;
+			}
+			&:nth-child(even) {
+				background-color: #e8f3f9;
+			}
+			&:only-child {
+				background-color: #e8f3f9;
+			}
+
+
+			& + tbody {
+				border-bottom: 1px solid #bbbbbb;
+			}
+
+			> tr {
+				border: 0;
+
+				> td {
+					border: 0;
+					padding:  0;
+
+					&:first-child {
+						padding-left: 10px !important;
+					}
+					&:last-child {
+						padding-right: 10px !important;
+					}
+				}
+
+				&:last-child > td {
+					padding: 0 0 20px 0;
+				}
+				&:first-child > td {
+					padding: 20px 0 0 0;
+				}
+				&:only-child > td {
+					padding: 20px 0;
+				}
+			}
+		}
+
+
+	}
+}
+.box {
+	background-color: #e8f3f9;
+	padding: 10px;
+}
+
+.table.table-patients {
+	text-align: left;
+	> tbody {
+		background-color: #e8f3f9 !important;
+		> tr {
+			border-top: 1px solid #dddddd;
+			border-bottom: 1px solid #dddddd;
+
+			&:hover {
+				background-color: #e7f5d3;
+				border-top: 1px solid #5958a2;
+				border-bottom: 1px solid #5958a2;
+			}
+
+			td {
+				padding: 8px !important;
+				line-height: 1.42857143;
+				vertical-align: top;
+			}
+		}
+	}
+}
+
+
+.panel-regular {
+	border-color: #5958a2;
+
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0;
+
+	.panel-heading {
+		background-color: #5958a2;
+		color: #fff;
+
+		-webkit-border-radius: 0;
+		-moz-border-radius: 0;
+		border-radius: 0;
+	}
+}
+
+.form-box {
+	max-width: 400px;
+	margin: 0 auto;
+
+	.submit-button {
+		-webkit-border-radius: 0;
+		-moz-border-radius: 0;
+		border-radius: 0;
+	}
+}
+
+/* Structure
+=========================*/
+.header {
+	background-color: #5958a2;
+	border-color: darken(#5958a2, 20%);
+
+	a, .btn-link {
+		color: #fff !important;
+	}
+	.navbar-nav {
+		li {
+			&.active {
+				a {
+					background-color: darken(#5958a2, 10%);
+
+					&:hover, &:focus {
+						background-color: darken(#5958a2, 10%);
+					}
+				}
+			}
+
+			a {
+				border-left: 1px solid darken(#5958a2, 20%);
+
+				&:hover {
+					background-color: darken(#5958a2, 10%) !important;
+				}
+			}
+		}
+	}
+	.btn-link {
+		@media(min-width: 787px) {
+			padding: 14px 11px;
+			border-left: 1px solid darken(#5958a2, 20%);
+			border-right: 1px solid darken(#5958a2, 20%);
+		}
+
+		&:hover {
+			background-color: darken(#5958a2, 10%);
+			text-decoration: none;
+		}
+	}
+}
+
+
+
+/** angular validation
+ ======================*/
+input.ng-invalid.ng-dirty.ng-touched {
+	border-color: #dc6663;
+
+	&::-webkit-input-placeholder { color: #dc6663; }
+	&:-moz-placeholder           { color: #dc6663; }
+	&::-moz-placeholder          { color: #dc6663; }
+	&:-ms-input-placeholder      { color: #dc6663; }
+}
+
+

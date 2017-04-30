@@ -1,0 +1,245 @@
+<div class="page_opat" ng-controller="OPATController" ng-cloak ng-form name="itemForm">
+
+	<!--<debugger data="_debug" />-->
+
+	<div class="heading">
+		<section ng-include="'views/_actions.html'" ng-controller="ActionController"><span ng-init="setForm(itemForm);"></span></section>
+		<div class="section-heading"><label>Patient info</label></div>
+		<section class="patient-box" disable-all="globalData.readOnly">
+
+			<div class="row opat-patient-info">
+				<div class="col-md-3">
+					<field type="text" value="opatData.data.hospital_name" options="{name: 'NHS', disabled: true}">
+						<span class="glyphicon glyphicon-search" style="cursor: pointer;" aria-hidden="true" data-toggle="modal" data-target="#patientsSearchNhsNo" skip-disable></span>
+					</field>
+				</div>
+				<div class="col-md-3">
+					<field type="text" value="opatData.data.patient.name" options="{name: 'Name', required: true}" ></field>
+				</div>
+				<div class="col-md-2">
+					<field type="text" value="opatData.data.sex" options="{name: 'Sex'}" ></field>
+				</div>
+				<div class="col-md-2">
+					<field type="text" value="opatData.data.age" options="{name: 'Age'}" ></field>
+				</div>
+				<div class="col-md-2">
+					<field type="text" value="opatData.data.weight" options="{name: 'Weight'}" ></field>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-3">
+					<field type="select" value="opatData.data.specialty_id" options="{name: 'Specialty', itemsName: 'specialtiesList'}">
+						<span class="glyphicon glyphicon-plus-sign text-success" data-target="#specialtiesList" data-toggle="modal" style="cursor: pointer;"></span>
+					</field>
+				</div>
+				<div class="col-md-3">
+					<field type="text" value="opatData.data.patient.surname" options="{name: 'Surname', required: true}">
+						<span class="glyphicon glyphicon-search" aria-hidden="true" data-toggle="modal" data-target="#patientsSearchSurname" style="cursor: pointer;" skip-disable></span>
+					</field>
+				</div>
+				<div class="col-md-3">
+					<field type="date" value="opatData.data.date_referral" options="{name: 'Referral Date'}" ></field>
+				</div>
+				<div class="col-md-3">
+					<field type="date" value="opatData.data.patient.date_birth" options="{name: 'Date of Birth', required: true}" ></field>
+				</div>
+			</div>
+		</section>
+
+	</div>
+	<div class="main"  disable-all="globalData.readOnly">
+
+		<div class="section-heading"><label>Main</label></div>
+		<section class="other">
+			<div class="row opat-selects">
+				<div class="col-md-6">
+					<field type="select" value="opatData.data.referring_consultant_id" options="{name: 'Referring consultant', itemsName: 'referringConsultantsList'}">
+						<span class="glyphicon glyphicon-plus-sign text-success" data-target="#referringConsultantsList" data-toggle="modal" style="cursor: pointer;"></span>
+					</field>
+				</div>
+				<div class="col-md-6">
+					<field type="select" value="opatData.data.managing_doctor_id" options="{name: 'Managing infection doctor', itemsName: 'managingDoctorsList'}">
+						<span class="glyphicon glyphicon-plus-sign text-success" data-target="#managingDoctorsList" data-toggle="modal" style="cursor: pointer;"></span>
+					</field>
+				</div>
+			</div>
+			<div class="row opat-selects">
+				<div class="col-md-6">
+					<field type="select" value="opatData.data.commisioning_board_id" options="{name: 'Commisioning Board', itemsName: 'commisioningBoardsList'}">
+						<span class="glyphicon glyphicon-plus-sign text-success" data-target="#commisioningBoardsList" data-toggle="modal" style="cursor: pointer;"></span>
+					</field>
+				</div>
+				<div class="col-md-6">
+					<field type="select" value="opatData.data.vad_type_id" options="{name: 'VAD Type', itemsName: 'vadTypesList'}">
+						<span class="glyphicon glyphicon-plus-sign text-success" data-target="#vadTypesList" data-toggle="modal" style="cursor: pointer;"></span>
+					</field>
+				</div>
+			</div>
+		</section>
+
+		<section class="primary-infective">
+			<div class="row">
+				<div class="col-md-6">
+					<field type="select" value="opatData.data.primary_infective_id" options="{name: 'Primary Infective Diagnosis', itemsName: 'primaryInfectiveList', class: 'input-double'}">
+						<span class="glyphicon glyphicon-plus-sign text-success" data-target="#primaryInfectiveList" data-toggle="modal" style="cursor: pointer;"></span>
+					</field>
+				</div>
+				<div class="col-md-6">
+					<field type="date" value="opatData.data.vad_insertion_date" options="{name: 'VAD Insertion Date'}" ></field>
+					<field type="date" value="opatData.data.vad_removal_date" options="{name: 'VAD Removal Date'}" ></field>
+				</div>
+			</div>
+		</section>
+		<section class="antibiotics row" ng-controller="AntibioticTableController">
+			<div class="col-md-12">
+				<div class="section-heading"><label>Antibiotics</label></div>
+				<div class="table-responsive">
+					<table class="table table-multi-body table-antibiotics">
+						<thead>
+							<tr>
+								<th>Antibiotic/Dose</th>
+								<th>Start Date/Duration</th>
+								<th>Stop Date/Frequency</th>
+								<th width="120px"></th>
+								<th></th>
+							</tr>
+						</thead>
+
+						<tbody>
+							<tr>
+								<td>
+									<field type="select" value="fullTableData.antibioticsTable.newItem.antibiotic_id"
+									       options="{name: 'Antibiotic', itemsName: 'antibioticsList'}">
+										<span class="glyphicon glyphicon-plus-sign text-success"
+										      data-target="#antibioticsList" data-toggle="modal"
+										      style="cursor: pointer;"></span>
+									</field>
+								</td>
+								<td>
+									<field type="date" value="fullTableData.antibioticsTable.newItem.start_date"
+									       options="{name: 'Start Date'}"></field>
+								</td>
+								<td>
+									<field type="date" value="fullTableData.antibioticsTable.newItem.stop_date"
+									       options="{name: 'Stop Date'}"></field>
+								</td>
+								<td>
+									<label class="form-group" style="margin-top: 8px;margin-left: 10px;">Need Change?</label>
+								</td>
+								<td style="">
+									<button class="btn btn-success" ng-click="addItem()">
+										<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+									</button>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<field type="text" value="fullTableData.antibioticsTable.newItem.dose"
+									       options="{name: 'Dose'}"></field>
+								</td>
+								<td>
+									<field type="text" value="fullTableData.antibioticsTable.newItem.duration"
+									       options="{name: 'Duration'}"></field>
+								</td>
+								<td>
+									<field type="text" value="fullTableData.antibioticsTable.newItem.frequency"
+									       options="{name: 'Frequency'}"></field>
+								</td>
+								<td colspan="2">
+									<field type="bool" value="fullTableData.antibioticsTable.newItem.need_change"
+									       options="{name: 'Need Change', showTitle: false}"></field>
+								</td>
+							</tr>
+						</tbody>
+
+						<tbody ng-repeat="item in fullTableData.antibioticsTable.data">
+							<tr>
+								<td>
+									<field type="select" value="item.antibiotic_id"
+									       options="{name: 'Antibiotic', itemsName: 'antibioticsList'}">
+									<span class="glyphicon glyphicon-plus-sign text-success"
+									      data-target="#antibioticsList" data-toggle="modal"
+									      style="cursor: pointer;"></span>
+									</field>
+								</td>
+								<td>
+									<field type="date" value="item.start_date" options="{name: 'Start Date'}"></field>
+								</td>
+								<td>
+									<field type="date" value="item.stop_date" options="{name: 'Stop Date'}"></field>
+								</td>
+								<td>
+									<label class="form-group" style="margin-top: 8px;margin-left: 10px;">Need Change?</label>
+								</td>
+								<td>
+									<button class="btn btn-danger" ng-click="removeItem(item)">
+										<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+									</button>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<field type="text" value="item.dose" options="{name: 'Dose'}"></field>
+								</td>
+								<td>
+									<field type="text" value="item.duration" options="{name: 'Duration'}"></field>
+								</td>
+								<td>
+									<field type="text" value="item.frequency" options="{name: 'Frequency'}"></field>
+								</td>
+								<td colspan="2">
+									<field type="bool" value="item.need_change"
+									       options="{name: 'Need Change', showTitle: false}"></field>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+			
+		</section>
+		<div class="section-heading"><label>Other</label></div>
+
+		<div class="bottom">
+			<div class="row">
+				<div class="opat-selects col-md-8">
+					<field type="select" value="opatData.data.complications_id"
+					       options="{name: 'Complications', itemsName: 'complicationsList'}">
+						<span class="glyphicon glyphicon-plus-sign text-success" data-target="#complicationsList"
+						      data-toggle="modal" style="cursor: pointer;"></span>
+					</field>
+					<field type="select" value="opatData.data.outcome_id"
+					       options="{name: 'Outcomes', itemsName: 'outcomesList'}">
+						<span class="glyphicon glyphicon-plus-sign text-success" data-target="#outcomesList"
+						      data-toggle="modal" style="cursor: pointer;"></span>
+					</field>
+				</div>
+				<div class="col-md-4">
+					<field type="date" value="opatData.data.discharge_date"
+					       options="{name: 'Discharge Date', class: 'input-double'}"></field>
+				</div>
+			</div>
+		</div>
+
+		<section class="bottom-buttons" style="text-align: center;">
+			<button class="btn btn-default btn-lg">Discharge this patient</button>
+		</section>
+
+		<simple-table title="Antibiotics" modal-id="antibioticsList" items="simpleTableData.antibioticsList"></simple-table>
+		<simple-table title="Complications" modal-id="complicationsList" items="simpleTableData.complicationsList"></simple-table>
+		<simple-table title="Outcomes" modal-id="outcomesList" items="simpleTableData.outcomesList"></simple-table>
+		<simple-table title="Speciality" modal-id="specialtiesList" items="simpleTableData.specialtiesList"></simple-table>
+		<simple-table title="Referring consultants" modal-id="referringConsultantsList" items="simpleTableData.referringConsultantsList"></simple-table>
+		<simple-table title="Managing infection doctor" modal-id="managingDoctorsList" items="simpleTableData.managingDoctorsList"></simple-table>
+		<simple-table title="Commisioning Boards" modal-id="commisioningBoardsList" items="simpleTableData.commisioningBoardsList"></simple-table>
+		<simple-table title="Vad Types" modal-id="vadTypesList" items="simpleTableData.vadTypesList"></simple-table>
+		<simple-table title="Primary Infective Diagnosis" modal-id="primaryInfectiveList" items="simpleTableData.primaryInfectiveList"></simple-table>
+	</div>
+
+	<div ng-include="'views/_patients_list.html'" ng-controller="PatientController"></div>
+
+	<search-modal table="globalData.patients" title="Patients Surname" modal-id="patientsSearchSurname" search-key="surname" search-result-keys="name,surname"></search-modal>
+	<search-modal table="globalData.patients" title="Date of Birth" modal-id="patientsSearchDateBirth" search-key="date_birth" search-result-keys="date_birth,name,surname"></search-modal>
+	<search-modal table="globalData.patients" title="NHS number" modal-id="patientsSearchNhsNo" search-key="nhs_no" search-result-keys="nhs_no,name,surname"></search-modal>
+</div>

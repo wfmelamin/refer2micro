@@ -1,0 +1,6 @@
+<div class="form-group">
+	<div ng-class="::{'input-group': fieldValue === '0'}">
+		<input type="text" class="form-control" ng-model="fieldValue" placeholder="{{::fieldOptions.name}}" ng-style="::{'min-width': fieldOptions.width}"/>
+		<div class="input-group-addon" ng-bind-html="::addon" ng-if="::fieldValue === '0'"></div>
+	</div>
+</div>

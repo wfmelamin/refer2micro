@@ -1,0 +1,12 @@
+<div class="form-group" ng-style="::{'min-width': fieldOptions.width}">
+	<div ng-class="::{'input-group': fieldValue === '0'}">
+		<select class="form-control"
+		        ng-model="fieldValue"
+		        to-number>
+			<option selected value="0">-- Select {{::fieldOptions.name}} --</option>
+			<option ng-repeat="item in simpleTableData[fieldOptions.itemsName]"
+			        value="{{ item.id }}">{{ item.name }}</option>
+		</select>
+		<div class="input-group-addon" ng-bind-html="::addon" ng-if="::fieldValue === '0'"></div>
+	</div>
+</div>

@@ -1,0 +1,164 @@
+<div class="page_micro-referral" ng-controller="MicroReferralController" ng-cloak ng-form name="itemForm">
+
+	<!--<debugger data="_debug" />-->
+
+	<div ng-include="'views/_patients_list.html'" ng-controller="PatientController"></div>
+
+	<div class="heading">
+		<section ng-include="'views/_actions.html'" ng-controller="ActionController"><span ng-init="setForm(itemForm);"></span></section>
+		<div class="section-heading"><label>Patient info</label></div>
+		<section class="patient-box box" disable-all="globalData.readOnly">
+			<div class="row">
+				<div class="col-md-4">
+					<field type="text" value="microReferral.data.patient.surname" options="{name: 'Surname', required: true}">
+						<span class="glyphicon glyphicon-search" aria-hidden="true"
+						      data-toggle="modal"
+						      data-target="#patientsSearchSurname"
+						      style="cursor: pointer;" skip-disable></span>
+					</field>
+					<field type="text" value="microReferral.data.patient.name" options="{name: 'Forename', required: true}"></field>
+					<field type="date" value="microReferral.data.patient.date_birth" options="{name: 'Date of Birth', required: true}">
+						<i class="glyphicon glyphicon-search" style="cursor: pointer;" data-toggle="modal"
+						   data-target="#patientsSearchDateBirth" skip-disable></i>
+					</field>
+				</div>
+				<div class="col-md-4">
+					<field type="text" value="microReferral.data.ward" options="{name: 'Ward'}"></field>
+
+					<field type="select" ng-show="accessData.data.changePatientDoctor" value="microReferral.data.patient.doctor_id" options="{name: 'Referring Dr.', itemsName: 'doctorsList'}"></field>
+
+					<field type="text" ng-show="!accessData.data.changePatientDoctor" value="microReferral.data.doctor_name" options="{name: 'Referring Dr.', disabled: true}"></field>
+
+					<field type="text" value="microReferral.data.hospital_name" options="{name: 'Hosp./NHS no.', disabled: true}" addon="accessData.data.searchByHospitalName">
+						<span class="glyphicon glyphicon-search"
+						      style="cursor: pointer;" aria-hidden="true"
+						      data-toggle="modal" data-target="#patientsSearchNhsNo"
+						      skip-disable></span>
+					</field>
+				</div>
+				<div class="col-md-4">
+					<field type="text" value="microReferral.data.team_bleeps" options="{name: 'Team Bleeps'}"></field>
+					<field type="select" value="microReferral.data.specialty_id" options="{name: 'Specialty', itemsName: 'specialtiesList'}" addon="accessData.data.changeListTables">
+						<a class="glyphicon glyphicon-plus-sign text-success" data-target="#specialtiesList"
+						   data-toggle="modal" style="text-decoration: none;cursor: pointer;"></a>
+					</field>
+					<field type="date" value="microReferral.data.date_referral" options="{name: 'Date of referral'}"></field>
+				</div>
+			</div>
+		</section>
+	</div>
+	<div class="main" disable-all="globalData.readOnly">
+
+		<section class="reason-box row">
+			<div class="col-md-3">
+				<div class="section-heading"><label for="mr_other_notes">Other notes</label></div>
+				<div class="form-group">
+					<button class="btn btn-default btn-block" id="mr_other_notes" data-toggle="modal" data-target="#notesTable" >
+						<span class="glyphicon glyphicon-list" aria-hidden="true"></span> View other notes
+					</button>
+				</div>
+			</div>
+
+			<div class="col-md-9">
+				<div class="section-heading"><label>Reason</label></div>
+				<field type="select" value="microReferral.data.reason_id" options="{name: 'Reason', showTitle: false, itemsName: 'reasonsList'}" addon="accessData.data.changeListTables">
+					<a class="glyphicon glyphicon-plus-sign text-success" data-toggle="modal" data-target="#reasonsList" style="text-decoration: none;cursor: pointer;"></a>
+				</field>
+			</div>
+		</section>
+
+		<section class="details-box">
+			<div class="section-heading"><label>Clinical Details</label></div>
+			<field type="textarea" value="microReferral.data.clinical_details" options="{name: 'Clinical Details', showTitle: false}"></field>
+		</section>
+
+		<section class="medical-history-box">
+			<div class="section-heading"><label>Relevant past medical history</label></div>
+			<field type="textarea" value="microReferral.data.medical_history" options="{name: 'Relevant past medical history', showTitle: false}"></field>
+		</section>
+
+		<section class="bloods-box row">
+			<div class="col-md-12">
+				<div class="section-heading"><label>Relevant Investigations (Inflammatory markers, imaging results)</label></div>
+			</div>
+			<div class="investigations col-md-4">
+				<field type="textarea" value="microReferral.data.investigations" options="{name: 'Relevant Ivestigations', showTitle: false}"></field>
+			</div>
+			<div class="bloods-table col-md-8">
+				<div class="table-responsive">
+					<full-table table="fullTableData.bloodsTable"></full-table>
+				</div>
+			</div>
+		</section>
+		<section class="antimicrobical-terapy-box">
+			<div class="section-heading"><label>Previous and current antimicrobical therapy</label></div>
+			<div class="table-responsive">
+				<full-table table="fullTableData.pcatTable"></full-table>
+			</div>
+		</section>
+
+		<section class="allergies-box">
+			<div class="section-heading"><label for="">Stewardships</label></div>
+			<div class="table-responsive">
+				<full-table table="fullTableData.stewardshipsTable"></full-table>
+			</div>
+		</section>
+
+		<section class="allergies-box">
+			<div class="section-heading"><label for="">Allergies</label></div>
+			<div class="table-responsive">
+				<full-table table="fullTableData.allergiesTable"></full-table>
+			</div>
+		</section>
+
+		<section class="plan-box row">
+			<div class="clinical-advice col-md-8">
+				<div class="section-heading"><label for="mr_clinical_advice">Clinical Advice/Follow-up plan</label></div>
+				<field type="textarea" value="microReferral.data.clinical_advice" options="{name: 'Clinical Advice/Follow-up plan', showTitle: false}"></field>
+			</div>
+			<div class="attachments col-md-4" ng-controller="FileController" disable-all="microReferral.data.id == 0">
+				<div class="section-heading"><label for="">Attachements</label></div>
+				<div class="alert alert-warning" ng-show="microReferral.data.id == 0">Please, save micro referral first to add a file.</div>
+				<button type="file" class="file-input form-control" ngf-select="upload($file)" ngf-max-size="10MB">Upload new file</button>
+				<a target="_blank" href="{{microReferral.data.file_link}}" class="thumbnail">
+					<img ngf-thumbnail="microReferral.data.file_link || 'http://placehold.it/165x165/8fe2ff/ffffff/?text=' + microReferral.data.file_name" width="165px" height="165px">
+				</a>
+			</div>
+		</section>
+
+
+		<div class="modal fade" id="notesTable" tabindex="-1" role="dialog">
+			<div class="modal-dialog modal-lg" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="myModalLabel">Follow Up Notes | <strong>Name: <em>{{microReferral.data.patient.name}} {{microReferral.data.patient.surname}}</em></strong></h4>
+					</div>
+					<div class="modal-body">
+						<div class="table-responsive">
+							<full-table table="fullTableData.followupNotesTable"></full-table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<simple-table ng-show="accessData.data.changeListTables" title="Speciality" modal-id="specialtiesList" items="simpleTableData.specialtiesList"></simple-table>
+		<simple-table ng-show="accessData.data.changeListTables" title="Agent" modal-id="agentsList" items="simpleTableData.agentsList"></simple-table>
+		<simple-table ng-show="accessData.data.changeListTables" title="Allergy" modal-id="allergiesList" items="simpleTableData.allergiesList"></simple-table>
+		<simple-table ng-show="accessData.data.changeListTables" title="Reason" modal-id="reasonsList" items="simpleTableData.reasonsList"></simple-table>
+
+		<simple-table ng-show="accessData.data.changeListTables" title="R/V at" modal-id="rvsList" items="simpleTableData.rvsList"></simple-table>
+		<simple-table ng-show="accessData.data.changeListTables" title="Outcomes" modal-id="outcomesList" items="simpleTableData.outcomesList"></simple-table>
+		<simple-table ng-show="accessData.data.changeListTables" title="Interventions" modal-id="interventionsList" items="simpleTableData.interventionsList"></simple-table>
+		<simple-table ng-show="accessData.data.changeListTables" title="Indications" modal-id="indicationsList" items="simpleTableData.indicationsList"></simple-table>
+
+	</div>
+
+	<search-modal table="globalData.patientsAll" title="Patients Surname" modal-id="patientsSearchSurname" search-key="surname" search-result-keys="name,surname"></search-modal>
+	<search-modal table="globalData.patientsAll" title="Date of Birth" modal-id="patientsSearchDateBirth" search-key="date_birth" search-result-keys="date_birth,name,surname"></search-modal>
+	<search-modal ng-show="accessData.data.searchByHospitalName" table="globalData.patientsAll" title="NHS number" modal-id="patientsSearchNhsNo" search-key="hospital_name" search-result-keys="hospital_name,name,surname"></search-modal>
+</div>
+
+
+
